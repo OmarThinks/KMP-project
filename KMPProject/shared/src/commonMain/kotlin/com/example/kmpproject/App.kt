@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -26,11 +28,13 @@ import kmpproject.shared.generated.resources.compose_multiplatform
 fun App() {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
+        val scrollState = rememberScrollState()
         Column(
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.primaryContainer)
                 .safeContentPadding()
-                .fillMaxSize(),
+                .fillMaxSize()
+                .verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button(onClick = { showContent = !showContent }) {
@@ -49,6 +53,25 @@ fun App() {
 
             Greeting("Android")
             ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+            ModifierExample()
+
         }
     }
 }
