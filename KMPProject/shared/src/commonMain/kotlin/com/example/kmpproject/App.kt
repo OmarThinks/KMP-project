@@ -22,6 +22,8 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import com.example.kmpproject.components.CupcakeApp
 import org.jetbrains.compose.resources.painterResource
 
@@ -36,10 +38,52 @@ import kotlinx.coroutines.flow.update
 import org.jetbrains.compose.resources.stringResource
 import kotlinx.coroutines.flow.StateFlow
 
+import androidx.navigation.compose.rememberNavController
+import kotlinx.serialization.*
+
+//import kotlinx.serialization.json.*
+
+// Creates routes
+@Serializable
+object Profile
+
+@Serializable
+object FriendsList
+
 
 @Composable
 @Preview
 fun App() {
+    MaterialTheme {
+        var showContent by remember { mutableStateOf(false) }
+        val scrollState = rememberScrollState()
+        Column(
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.primaryContainer)
+                .safeContentPadding()
+                .fillMaxSize()
+                .verticalScroll(scrollState),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+
+            // Creates the NavController
+            val navController = rememberNavController()
+
+            // Creates the NavHost with the navigation graph consisting of supplied destinations
+            NavHost(navController = navController, startDestination = Profile) {
+                composable<Profile> { ProfileScreen( /* ... */) }
+                composable<FriendsList> { FriendsListScreen( /* ... */) }
+                // You can add more destinations similarly
+            }
+
+        }
+    }
+}
+
+
+@Composable
+@Preview
+fun App2() {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }
         val scrollState = rememberScrollState()
