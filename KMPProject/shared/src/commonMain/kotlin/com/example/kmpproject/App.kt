@@ -21,6 +21,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
+import com.example.kmpproject.components.CupcakeApp
 import org.jetbrains.compose.resources.painterResource
 
 import kmpproject.shared.generated.resources.Res
@@ -29,7 +31,11 @@ import kmpproject.shared.generated.resources.baseline_star_outline_24
 import kmpproject.shared.generated.resources.compose_multiplatform
 import kmpproject.shared.generated.resources.greeting
 import kmpproject.shared.generated.resources.welcome_message
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
 import org.jetbrains.compose.resources.stringResource
+import kotlinx.coroutines.flow.StateFlow
+
 
 @Composable
 @Preview
@@ -72,7 +78,7 @@ fun App() {
             Text(stringResource(Res.string.greeting))
             Text(stringResource(Res.string.welcome_message, "User"))
             Text(stringResource(Res.string.welcome_message, "User"))
-
+            CupcakeApp()
 
             ModifierExample()
             ModifierExample()
