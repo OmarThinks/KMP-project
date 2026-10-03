@@ -24,8 +24,12 @@ import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.resources.painterResource
 
 import kmpproject.shared.generated.resources.Res
+import kmpproject.shared.generated.resources.app_name
 import kmpproject.shared.generated.resources.baseline_star_outline_24
 import kmpproject.shared.generated.resources.compose_multiplatform
+import kmpproject.shared.generated.resources.greeting
+import kmpproject.shared.generated.resources.welcome_message
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 @Preview
@@ -63,6 +67,11 @@ fun App() {
                 modifier = Modifier.size(50.dp),
                 colorFilter = ColorFilter.tint(Color.Blue)
             )
+
+            Text(stringResource(Res.string.app_name))
+            Text(stringResource(Res.string.greeting))
+            Text(stringResource(Res.string.welcome_message, "User"))
+            Text(stringResource(Res.string.welcome_message, "User"))
 
 
             ModifierExample()
