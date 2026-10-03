@@ -56,7 +56,7 @@ kotlin {
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.androidx.lifecycle.viewmodel.navigation3)
             implementation(libs.androidx.lifecycle.navigation.compose)
-            //implementation(libs.kotlinx.serialization.json)
+            implementation(libs.kotlinx.serialization.json)
         }
         jvmMain.dependencies {
             implementation(libs.kotlinx.coroutines.swing)

@@ -48,13 +48,13 @@ import com.example.kmpproject.routes.ProfileScreenSerializableObject
 import com.example.kmpproject.routes.ProfileScreen
 import com.example.kmpproject.routes.FriendsListScreen
 import com.example.kmpproject.routes.FriendsListScreenSerializableObject
+import com.example.kmpproject.routes.NavigationHost
 
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
         val scrollState = rememberScrollState()
         Column(
             modifier = Modifier
@@ -65,100 +65,9 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            // Creates the NavController
-            val navController = rememberNavController()
-
-            // Creates the NavHost with the navigation graph consisting of supplied destinations
-            NavHost(navController = navController, startDestination = Profile) {
-                composable<ProfileScreenSerializableObject> { ProfileScreen( /* ... */) }
-                composable<FriendsListScreenSerializableObject> { FriendsListScreen( /* ... */) }
-                // You can add more destinations similarly
-            }
+            //NavigationHost()
 
         }
     }
 }
-
-
-@Composable
-@Preview
-fun App2() {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        val scrollState = rememberScrollState()
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize()
-                .verticalScroll(scrollState),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
-
-            Greeting("Android")
-
-            Image(
-                painter = painterResource(Res.drawable.baseline_star_outline_24),
-                contentDescription = "Sample icon",
-                modifier = Modifier.size(50.dp),
-                colorFilter = ColorFilter.tint(Color.Blue)
-            )
-
-            Text(stringResource(Res.string.app_name))
-            Text(stringResource(Res.string.greeting))
-            Text(stringResource(Res.string.welcome_message, "User"))
-            Text(stringResource(Res.string.welcome_message, "User"))
-            CupcakeApp()
-
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-            ModifierExample()
-
-        }
-    }
-}
-
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello, $name!")
-}
-
-@Composable
-fun ModifierExample() {
-    Text(
-        text = "Hello with padding",
-        modifier = Modifier.padding(16.dp)
-    )
-}
-
 
