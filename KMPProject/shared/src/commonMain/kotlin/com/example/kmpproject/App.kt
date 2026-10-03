@@ -41,14 +41,13 @@ import kotlinx.coroutines.flow.StateFlow
 import androidx.navigation.compose.rememberNavController
 import kotlinx.serialization.*
 
+
 //import kotlinx.serialization.json.*
 
-// Creates routes
-@Serializable
-object Profile
-
-@Serializable
-object FriendsList
+import com.example.kmpproject.routes.ProfileScreenSerializableObject
+import com.example.kmpproject.routes.ProfileScreen
+import com.example.kmpproject.routes.FriendsListScreen
+import com.example.kmpproject.routes.FriendsListScreenSerializableObject
 
 
 @Composable
@@ -71,8 +70,8 @@ fun App() {
 
             // Creates the NavHost with the navigation graph consisting of supplied destinations
             NavHost(navController = navController, startDestination = Profile) {
-                composable<Profile> { ProfileScreen( /* ... */) }
-                composable<FriendsList> { FriendsListScreen( /* ... */) }
+                composable<ProfileScreenSerializableObject> { ProfileScreen( /* ... */) }
+                composable<FriendsListScreenSerializableObject> { FriendsListScreen( /* ... */) }
                 // You can add more destinations similarly
             }
 
