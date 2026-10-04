@@ -55,17 +55,15 @@ import com.example.kmpproject.routes.NavigationHost
 @Preview
 fun App() {
     MaterialTheme {
-        val scrollState = rememberScrollState()
         Column(
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.primaryContainer)
                 .safeContentPadding()
-                .fillMaxSize()
-                .verticalScroll(scrollState),
+                .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
-            //NavigationHost()
+            NavigationHost()
 
         }
     }

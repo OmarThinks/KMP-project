@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,6 +14,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kotlinx.serialization.Serializable
+
+
+@Serializable
+object Profile
+
 
 @Composable
 @Preview
@@ -27,14 +34,24 @@ fun NavigationHost() {
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        Text("Yo")
 
         // Creates the NavHost with the navigation graph consisting of supplied destinations
-        NavHost(navController = navController, startDestination = HomeScreenSerializableObject) {
-            composable<HomeScreenSerializableObject> { HomeScreen() }
-            composable<BasicScreenSerializableObject> { BasicScreen() }
-            composable<ProfileScreenSerializableObject> { ProfileScreen() }
-            composable<FriendsListScreenSerializableObject> { FriendsListScreen() }
+        //HomeScreen()
+
+        NavHost(
+            navController = navController,
+            startDestination = Profile,
+            modifier = Modifier.weight(1f)
+        ) {
+            composable<Profile> { HomeScreen() }
+            //composable<BasicScreenSerializableObject> { BasicScreen() }
+            //composable<ProfileScreenSerializableObject> { ProfileScreen() }
+            //composable<FriendsListScreenSerializableObject> { FriendsListScreen() }
             // You can add more destinations similarly
+
+
         }
+
     }
 }
