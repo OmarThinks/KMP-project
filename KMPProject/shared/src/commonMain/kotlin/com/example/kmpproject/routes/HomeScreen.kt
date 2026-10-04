@@ -35,8 +35,8 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 @Preview
 fun HomeScreen() {
+
     MaterialTheme {
-        //val navController = rememberNavController()
 
         Column(
             modifier = Modifier
@@ -44,14 +44,16 @@ fun HomeScreen() {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text("Hi")
-            /*Button(
+            /*
+            Button(
                 onClick = {
                     //navController.navigate(BasicScreenSerializableObject)
                 }
             ) {
                 Text("Basic Screen")
             }
-            Button(onClick = { }) {
+            */
+            /*Button(onClick = { }) {
                 Text("Basic Screen")
             }
             Button(onClick = { }) {
