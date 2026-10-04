@@ -41,14 +41,13 @@ fun NavigationHost() {
 
         NavHost(
             navController = navController,
-            startDestination = Profile,
+            startDestination = HomeScreenSerializableObject,
             modifier = Modifier.weight(1f)
         ) {
-            composable<Profile> { HomeScreen() }
-            //composable<BasicScreenSerializableObject> { BasicScreen() }
-            //composable<ProfileScreenSerializableObject> { ProfileScreen() }
-            //composable<FriendsListScreenSerializableObject> { FriendsListScreen() }
-            // You can add more destinations similarly
+            composable<HomeScreenSerializableObject> { HomeScreen() }
+            composable<BasicScreenSerializableObject> { BasicScreen() }
+            composable<ProfileScreenSerializableObject> { ProfileScreen() }
+            composable<FriendsListScreenSerializableObject> { FriendsListScreen() }
 
 
         }
