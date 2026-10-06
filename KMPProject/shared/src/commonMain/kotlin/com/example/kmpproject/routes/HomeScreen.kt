@@ -46,7 +46,58 @@ import kotlinx.datetime.todayIn
 //import platform.Foundation.NSLocale
 //import platform.Foundation.currentLocale
 
+import kotlinx.coroutines.*
+
+
 import androidx.compose.ui.text.intl.Locale
+
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeContentPadding
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
+import com.example.kmpproject.ktor.kmpktor.KtorGreeting
+
+
+@Composable
+@Preview
+fun KtorExample() {
+    MaterialTheme {
+        var text by remember { mutableStateOf("Loading") }
+
+        Column(
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.primaryContainer)
+                .safeContentPadding()
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            LaunchedEffect(true) {
+                text = try {
+                    KtorGreeting().greet()
+                } catch (e: Exception) {
+                    e.message ?: "error"
+                }
+            }
+            GreetingView(text)
+        }
+    }
+}
+
+@Composable
+fun GreetingView(text: String) {
+    Text(text = text)
+}
+
+@Preview
+@Composable
+fun DefaultPreview() {
+    MaterialTheme {
+        GreetingView("Hello, Android!")
+    }
+}
 
 
 @Composable
@@ -72,7 +123,10 @@ fun HomeScreen() {
         ) {
             Text("Hi")
 
+            KtorExample()
 
+
+            /*
             Box(Modifier.padding(24.dp)) {
                 Button(onClick = { isPopupOpen = !isPopupOpen }) {
                     Text("Toggle popup")
@@ -102,6 +156,8 @@ fun HomeScreen() {
             Text(countryCode.toString())
             Text(languageCode.toString())
             Text(languageTag.toString())
+            */
+
 
             /*
             Button(
