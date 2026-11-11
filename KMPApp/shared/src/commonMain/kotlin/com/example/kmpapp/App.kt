@@ -14,7 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.kmpapp.composables.MyButton
+import com.example.kmpapp.composables.MyComponent
 import org.jetbrains.compose.resources.painterResource
 
 import kmpapp.shared.generated.resources.Res
@@ -32,7 +32,7 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            MyButton()
+            MyComponent()
             Button(onClick = { showContent = !showContent }) {
                 Text("Click me!")
             }
