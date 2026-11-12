@@ -61,7 +61,7 @@ fun MyButton(
         .clickable(onClick = onClick)
         .padding(30.dp)
     ) {
-        Text(text = text)
+        Text(text = text, fontSize = 20.sp)
     }
 }
 
